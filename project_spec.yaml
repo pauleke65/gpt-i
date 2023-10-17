@@ -1,0 +1,59 @@
+project:
+  name: GPT-I
+  description: An automated AI mailbox for businesses that can read, understand, and respond to emails. 
+
+technologies: 
+  backend:
+    - Supabase:
+      version: latest
+      purpose: Backend as a service (BaaS) providing database, auth & serverless functions.
+      usage: Used to create, secure, and manage the project database
+      tasks:
+        - User authentication
+        - Email and task storage
+        - Real-time updates
+    - Next.js:
+      version: latest
+      purpose: A React framework for building efficient, scalable, and SEO-friendly web applications.
+      usage: Used to handle server-side operations in the application and implement API routes
+      tasks:
+        - Implementation of routing
+        - Server-side rendering
+        - API routes
+  frontend:
+    - React:
+      version: latest
+      purpose: A JavaScript library for building user interfaces.
+      usage: Used for creating the application's UI/UX
+      tasks:
+        - UI/UX development
+        - State management
+        - Component structuring
+    - TypeScript:
+      version: latest
+      purpose: A strong statically typed superset of JavaScript.
+      usage: Used for adding strict type-checking to improve developer productivity and code correctness
+      tasks:
+        - Type-checking
+        - Improved developer productivity
+  
+features:
+  - Automation of email processing:
+    goal: To handle incoming emails, decipher their contents and respond accordingly.
+  - Customer support automation:
+    goal: To understand customer queries, complaints, requests, and provide appropriate responses or escalations.
+  - Sales and marketing automation:
+    goal: To automate email marketing campaigns, lead nurturing and order processing.
+  - Pre-setup tasks automation:
+    goal: To schedule follow-up emails, set up auto-responders and create task-specific mailing lists.
+
+structure:
+  - components: This holds all the reusable UI components using React.
+    - App.tsx: This is the entry point into our application and houses the root component.
+  - pages: This directory will contain our Next.js Pages. Each file corresponds to a route in the application.
+  - public: This directory will contain static assets like images, robots.txt and so on.
+  - styles: This directory will contain the global styles for our application.
+  - lib: Contains utility functions and reusable code that can be imported into components.
+  - api: The folder will contain our Next.js API routes.
+  - db: The folder will contain our database scripts, including table definitions and migrations.
+  - tests: Contains all test files for the application. Consumers need to write tests as they develop features.   

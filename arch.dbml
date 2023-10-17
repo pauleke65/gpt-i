@@ -1,0 +1,70 @@
+Table User {
+  id int [pk]
+  name varchar
+  role varchar
+  email varchar
+}
+
+Table Email {
+  id int [pk]
+  sender_id int [ref: - User.id]
+  receiver_id int [ref: - User.id]
+  content text
+  task_id int [ref: - Task.id]
+  response_status_id int [ref: - ResponseStatus.id]
+}
+
+Table ResponseStatus {
+  id int [pk]
+  status varchar
+}
+
+Table Task {
+  id int [pk]
+  name varchar
+  description text
+  status_id int [ref: - TaskStatus.id]
+}
+
+Table TaskStatus {
+  id int [pk]
+  status varchar
+}
+
+Table Analytics {
+  id int [pk]
+  task_id int [ref: - Task.id]
+  email_id int [ref: - Email.id]
+  user_id int [ref: - User.id]
+}
+
+Table Notification {
+  id int [pk]
+  user_id int [ref: - User.id]
+  email_id int [ref: - Email.id]
+  task_id int [ref: - Task.id]
+}
+
+Table AI_ML {
+  id int [pk]
+  task_id int [ref: - Task.id]
+  email_id int [ref: - Email.id]
+}
+
+Table Schedule {
+  id int [pk]
+  task_id int [ref: - Task.id]
+  time_scheduled datetime
+}
+
+Table OrderManagement {
+  id int [pk]
+  task_id int [ref: - Task.id]
+  status_id int [ref: - TaskStatus.id]
+}
+
+Table Promotions {
+  id int [pk]
+  user_id int [ref: - User.id]
+  analytics_id int [ref: - Analytics.id]
+}

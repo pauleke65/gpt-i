@@ -1,0 +1,82 @@
+erDiagram
+  User {
+    int id
+    string name
+    string role
+    string email
+  }
+  Email {
+    int id
+    User sender_id
+    User receiver_id
+    string content
+    Task task_id
+    ResponseStatus response_status_id
+  }
+  ResponseStatus {
+    int id
+    string status
+  }
+  Task {
+    int id
+    string name
+    string description
+    TaskStatus status_id
+  }
+  TaskStatus {
+    int id
+    string status
+  }
+  Analytics {
+    int id
+    Task task_id
+    Email email_id
+    User user_id
+  }
+  Notification {
+    int id
+    User user_id
+    Email email_id
+    Task task_id
+  }
+  AI_ML {
+    int id
+    Task task_id
+    Email email_id
+  }
+  Schedule {
+    int id
+    Task task_id
+    datetime time_scheduled
+  }
+  OrderManagement {
+    int id
+    Task task_id
+    TaskStatus status_id
+  }
+  Promotions {
+    int id
+    User user_id
+    Analytics analytics_id
+  }
+  
+  User "1" -- "0..*" Email
+  User "1" -- "0..*" Notification
+  User "1" -- "0..*" Promotions
+  User "1" -- "0..*" Analytics
+  
+  Email "1" -- "0..*" Notification
+  Email "1" -- "0..*" AI_ML
+  Email "1" -- "0..*" Analytics
+  Email -- ResponseStatus
+  
+  Task "1" -- "0..*" Email
+  Task "1" -- "0..*" Notification
+  Task "1" -- "0..*" AI_ML
+  Task "1" -- "0..*" Analytics
+  Task "1" -- "0..*" Schedule
+  Task "1" -- "0..*" OrderManagement
+  
+  TaskStatus -- Task
+  TaskStatus -- OrderManagement
+  Analytics -- Promotions
