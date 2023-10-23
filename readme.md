@@ -1,5 +1,5 @@
 
-# GPT-I
+# GPT-I E
 
 An automated AI mailbox for businesses that can read, understand, and respond to emails. It can be used to automate customer support, sales, and marketing, and also perform pre-setup tasks on behalf of the user.
 
